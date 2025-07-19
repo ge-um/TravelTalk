@@ -9,7 +9,7 @@ import UIKit
 
 class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet var chatListCollectionView: UICollectionView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -23,7 +23,7 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     // MARK: - CollectionView Initialization
     private func registerNib() {
-        print(#function)
+        print(self, #function)
         let nib = UINib(nibName: "ChatListCollectionViewCell", bundle: nil)
         
         chatListCollectionView.register(nib, forCellWithReuseIdentifier: "ChatListCollectionViewCell")
@@ -59,6 +59,16 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.configureData(with: ChatList.list[indexPath.item])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         
+        let chatRoom = ChatList.list[indexPath.item]
+        vc.title = chatRoom.chatroomName
+        vc.chatRoom = chatRoom
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

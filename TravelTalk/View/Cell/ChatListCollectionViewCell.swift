@@ -10,6 +10,7 @@ import UIKit
 class ChatListCollectionViewCell: UICollectionViewCell {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    // TODO: - messageLabel로 만들어서 통일성 키우기
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
