@@ -1,5 +1,5 @@
 //
-//  ChatListCollectionViewController.swift
+//  ChatListViewController.swift
 //  TravelTalk
 //
 //  Created by 금가경 on 7/19/25.

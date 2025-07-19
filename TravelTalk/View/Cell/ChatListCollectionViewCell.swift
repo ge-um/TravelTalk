@@ -37,7 +37,6 @@ class ChatListCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureProfileImageView() {
-        
         profileImageView.contentMode = .scaleAspectFit
     }
     
