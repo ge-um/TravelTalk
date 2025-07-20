@@ -16,6 +16,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         configure()
     }
     
+    // TODO: - scrollToRow geometry 필요할까?
+    override func viewDidAppear(_ animated: Bool) {
+        scrollToEnd()
+    }
+    
     private func configure() {
         registerNib()
         configureTableView()
@@ -37,6 +42,12 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         chatRoomTableView.dataSource = self
         chatRoomTableView.rowHeight = UITableView.automaticDimension
         chatRoomTableView.separatorColor = .clear
+    }
+    
+    // MARK: - View Action
+    private func scrollToEnd() {
+        let index = IndexPath(row: chatRoom.chatList.count-1, section: 0)
+        chatRoomTableView.scrollToRow(at: index, at: .bottom, animated: true)
     }
     
     // MARK: - TableView Setting
