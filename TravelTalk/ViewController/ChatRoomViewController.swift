@@ -25,8 +25,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - TableView Initialization
     private func registerNib() {
         print(self, #function)
-        let nib = UINib(nibName: "ReceivedMessageViewCell", bundle: nil)
-        chatRoomTableView.register(nib, forCellReuseIdentifier: "ReceivedMessageViewCell")
+        let receivedMessageNib = UINib(nibName: "ReceivedMessageViewCell", bundle: nil)
+        chatRoomTableView.register(receivedMessageNib, forCellReuseIdentifier: "ReceivedMessageViewCell")
+        
+        let sentMessageNib = UINib(nibName: "SentMessageViewCell", bundle: nil)
+        chatRoomTableView.register(sentMessageNib, forCellReuseIdentifier: "SentMessageViewCell")
     }
     
     private func configureTableView() {
@@ -42,9 +45,20 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(#function)
-        let cell = chatRoomTableView.dequeueReusableCell(withIdentifier: "ReceivedMessageViewCell") as! ReceivedMessageViewCell
+        
+        let chatList = chatRoom.chatList[indexPath.row]
+        
+        switch chatList.user.name {
+            
+        case ChatList.me.name:
+            let cell = chatRoomTableView.dequeueReusableCell(withIdentifier: "SentMessageViewCell") as! SentMessageViewCell
+            cell.configureData(with: chatList)
+            return cell
 
-        cell.configureData(with: chatRoom.chatList[indexPath.row])
-        return cell
+        default:
+            let cell = chatRoomTableView.dequeueReusableCell(withIdentifier: "ReceivedMessageViewCell") as! ReceivedMessageViewCell
+            cell.configureData(with: chatList)
+            return cell
+        }
     }
 }
