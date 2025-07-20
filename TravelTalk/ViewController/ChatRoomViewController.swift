@@ -14,7 +14,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        chatRoomTableView.rowHeight = 150
+        chatRoomTableView.rowHeight = 200
     }
     
     func configure() {
