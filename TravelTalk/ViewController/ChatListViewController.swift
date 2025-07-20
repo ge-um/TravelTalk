@@ -9,7 +9,6 @@ import UIKit
 
 // TODO: - CollectionView와 TableView의 차이는 무엇일까? 정리하기
 class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
-    
     @IBOutlet var chatListCollectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     
@@ -25,6 +24,7 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         configureCollectionView()
         configureCollectionViewLayout()
         configureSearchBar()
+        configureNavigationBar()
     }
     
     // MARK: - CollectionView Initialization
@@ -51,6 +51,14 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         
         chatListCollectionView.collectionViewLayout = layout
+    }
+    
+    private func configureNavigationBar() {
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationItem.title = "TRAVEL TALK"
     }
     
     // MARK: - CollectionView Setting

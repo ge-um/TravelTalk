@@ -17,11 +17,7 @@ class ChatListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         configureUI()
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-//    }
+
     // MARK: - UI
     private func configureUI() {
         configureProfileImageView()
@@ -32,7 +28,7 @@ class ChatListCollectionViewCell: UICollectionViewCell {
     
     private func configureProfileImageView() {
         profileImageView.contentMode = .scaleAspectFit
-//        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
     }
     
     private func configureNameLabel() {

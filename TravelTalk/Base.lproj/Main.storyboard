@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qR8-qW-ZJ8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0U9-Qs-Pc2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TRAVEL TALK-->
+        <!--Chat List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ChatListViewController" id="BYZ-38-t0r" customClass="ChatListViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +61,7 @@
                             <constraint firstItem="Qkd-Lh-gW4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z3M-Md-eiQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TRAVEL TALK" id="DxI-tO-Ycl"/>
+                    <navigationItem key="navigationItem" id="DxI-tO-Ycl"/>
                     <connections>
                         <outlet property="chatListCollectionView" destination="Qkd-Lh-gW4" id="4OB-bJ-vZw"/>
                         <outlet property="searchBar" destination="cVR-JJ-MFM" id="Hh7-dB-flJ"/>
@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1900" y="-2.1126760563380285"/>
         </scene>
         <!--Chat Room View Controller-->
         <scene sceneID="tas-cN-qq9">
@@ -83,12 +83,22 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHT-Cq-JpL">
+                                <rect key="frame" x="0.0" y="59" width="393" height="0.3333333333333357"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.29999999999999999" id="bjm-oK-nhV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="76s-14-Cac"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tj8-sM-m3p" firstAttribute="leading" secondItem="76s-14-Cac" secondAttribute="leading" id="08E-Ka-zti"/>
                             <constraint firstItem="76s-14-Cac" firstAttribute="trailing" secondItem="tj8-sM-m3p" secondAttribute="trailing" id="3vG-5H-ht7"/>
+                            <constraint firstItem="zHT-Cq-JpL" firstAttribute="top" secondItem="76s-14-Cac" secondAttribute="top" id="6qN-oX-Vpi"/>
+                            <constraint firstAttribute="trailing" secondItem="zHT-Cq-JpL" secondAttribute="trailing" id="Iio-hG-GFp"/>
+                            <constraint firstItem="zHT-Cq-JpL" firstAttribute="leading" secondItem="Dfb-Pr-HcV" secondAttribute="leading" id="Xr7-Dr-vtT"/>
                             <constraint firstItem="76s-14-Cac" firstAttribute="bottom" secondItem="tj8-sM-m3p" secondAttribute="bottom" id="mkp-6h-0CV"/>
                             <constraint firstItem="tj8-sM-m3p" firstAttribute="top" secondItem="76s-14-Cac" secondAttribute="top" id="qsI-Nj-DQf"/>
                         </constraints>
@@ -100,25 +110,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTP-av-vM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840" y="-2"/>
+            <point key="canvasLocation" x="2765.6488549618321" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="N0E-i9-SOr">
+        <scene sceneID="udq-pn-VER">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qR8-qW-ZJ8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0U9-Qs-Pc2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OTb-kT-Fjx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gCk-Kt-6KF">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Wp0-dn-SJv"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cz1-f3-cqm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TPL-6T-m12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKN-ZB-Zj5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
@@ -126,7 +136,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

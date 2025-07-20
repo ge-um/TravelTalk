@@ -11,6 +11,7 @@ class ReceivedMessageViewCell: UITableViewCell {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var messageBackgroundView: UIView!
     @IBOutlet var dateLabel: UILabel!
     
     override func awakeFromNib() {
@@ -38,15 +39,20 @@ class ReceivedMessageViewCell: UITableViewCell {
     }
     
     private func configureNameLabel() {
-        nameLabel.font = .systemFont(ofSize: 13, weight: .light)
+        nameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         messageLabel.numberOfLines = 0
     }
     
     private func configureMessageLabel() {
-        messageLabel.font = .systemFont(ofSize: 13, weight: .light)
-        messageLabel.layer.borderWidth = 1
-        messageLabel.layer.borderColor = UIColor.systemGray.cgColor
+        messageLabel.font = .systemFont(ofSize: 14, weight: .regular)
         messageLabel.numberOfLines = 0
+        configureMessageBackgroundView()
+    }
+    
+    private func configureMessageBackgroundView() {
+        messageBackgroundView.layer.cornerRadius = 10
+        messageBackgroundView.layer.borderColor = UIColor.systemGray.cgColor
+        messageBackgroundView.layer.borderWidth = 1
     }
     
     private func configureDateLabel() {

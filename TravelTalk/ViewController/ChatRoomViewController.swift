@@ -14,10 +14,9 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        chatRoomTableView.rowHeight = 200
     }
     
-    func configure() {
+    private func configure() {
         registerNib()
         configureTableView()
     }
@@ -36,6 +35,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         print(self, #function)
         chatRoomTableView.delegate = self
         chatRoomTableView.dataSource = self
+        chatRoomTableView.rowHeight = UITableView.automaticDimension
+        chatRoomTableView.separatorColor = .clear
     }
     
     // MARK: - TableView Setting
