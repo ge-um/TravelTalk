@@ -44,9 +44,11 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
     private func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         let deviceWidth = UIScreen.main.bounds.width
+        let cellWidth = deviceWidth - 16 * 2
         
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: deviceWidth, height: 60)
+        layout.itemSize = CGSize(width: cellWidth, height: 60)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         
         chatListCollectionView.collectionViewLayout = layout
     }
@@ -63,6 +65,11 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = chatListCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatListCollectionViewCell", for: indexPath) as! ChatListCollectionViewCell
         
         cell.configureData(with: filteredList[indexPath.item])
+        
+        // TODO: - Drawing Cycle 공부하고 layoutSubView로 바꿔보기
+        DispatchQueue.main.async {
+            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.width / 2
+        }
         
         return cell
     }
@@ -83,6 +90,7 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
     func configureSearchBar() {
         searchBar.delegate = self
         searchBar.backgroundImage = UIImage()
+        searchBar.placeholder = "친구 이름을 검색해보세요"
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

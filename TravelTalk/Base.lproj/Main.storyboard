@@ -16,48 +16,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EHl-7O-6gw">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cVR-JJ-MFM">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="suh-eE-c7Y"/>
-                                        </constraints>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ZKX-sX-9ij"/>
-                                        </connections>
-                                    </searchBar>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qkd-Lh-gW4">
-                                        <rect key="frame" x="0.0" y="44" width="393" height="671"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qmm-Kw-Ais">
-                                            <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells/>
-                                    </collectionView>
-                                </subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cVR-JJ-MFM">
+                                <rect key="frame" x="8" y="103" width="377" height="60"/>
                                 <constraints>
-                                    <constraint firstItem="cVR-JJ-MFM" firstAttribute="leading" secondItem="EHl-7O-6gw" secondAttribute="leading" id="QdH-ZH-uhK"/>
-                                    <constraint firstAttribute="bottom" secondItem="Qkd-Lh-gW4" secondAttribute="bottom" id="RaU-c8-D3l"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qkd-Lh-gW4" secondAttribute="trailing" id="ctx-In-h2T"/>
-                                    <constraint firstItem="cVR-JJ-MFM" firstAttribute="top" secondItem="EHl-7O-6gw" secondAttribute="top" id="kmb-YD-Bcr"/>
-                                    <constraint firstAttribute="trailing" secondItem="cVR-JJ-MFM" secondAttribute="trailing" id="p7t-ch-p3M"/>
-                                    <constraint firstItem="Qkd-Lh-gW4" firstAttribute="leading" secondItem="EHl-7O-6gw" secondAttribute="leading" id="pp5-hj-RIg"/>
+                                    <constraint firstAttribute="height" constant="60" id="zNk-pn-EKO"/>
                                 </constraints>
-                            </stackView>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZKX-sX-9ij"/>
+                                </connections>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6K-2Y-LhL">
+                                <rect key="frame" x="0.0" y="163" width="393" height="0.33333333333334281"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.29999999999999999" id="1DB-cI-EGq"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qkd-Lh-gW4">
+                                <rect key="frame" x="0.0" y="163.33333333333331" width="393" height="688.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qmm-Kw-Ais">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EHl-7O-6gw" secondAttribute="bottom" id="Bjf-32-o4w"/>
-                            <constraint firstItem="EHl-7O-6gw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IuW-W8-fSC"/>
-                            <constraint firstItem="EHl-7O-6gw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jz3-1z-DYb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EHl-7O-6gw" secondAttribute="trailing" id="ZcZ-O8-Xsj"/>
+                            <constraint firstItem="Qkd-Lh-gW4" firstAttribute="top" secondItem="f6K-2Y-LhL" secondAttribute="bottom" id="C4Y-Jo-pgz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qkd-Lh-gW4" secondAttribute="trailing" id="COY-n9-2ct"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f6K-2Y-LhL" secondAttribute="trailing" id="FGO-ZL-fGi"/>
+                            <constraint firstItem="cVR-JJ-MFM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="FdZ-km-YKT"/>
+                            <constraint firstItem="f6K-2Y-LhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IJl-sg-esP"/>
+                            <constraint firstItem="cVR-JJ-MFM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jdQ-P5-YZS"/>
+                            <constraint firstAttribute="trailing" secondItem="cVR-JJ-MFM" secondAttribute="trailing" constant="8" id="q8c-4U-MpU"/>
+                            <constraint firstItem="f6K-2Y-LhL" firstAttribute="top" secondItem="cVR-JJ-MFM" secondAttribute="bottom" id="tVX-f9-oJ4"/>
+                            <constraint firstAttribute="bottom" secondItem="Qkd-Lh-gW4" secondAttribute="bottom" id="vZs-yX-I7p"/>
+                            <constraint firstItem="Qkd-Lh-gW4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yY6-Oa-uw5"/>
+                            <constraint firstItem="Qkd-Lh-gW4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z3M-Md-eiQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TRAVEL TALK" id="DxI-tO-Ycl"/>
@@ -123,6 +124,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

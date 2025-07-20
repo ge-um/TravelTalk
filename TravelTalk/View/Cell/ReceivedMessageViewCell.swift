@@ -35,7 +35,6 @@ class ReceivedMessageViewCell: UITableViewCell {
     
     private func configureProfileImageView() {
         profileImageView.contentMode = .scaleAspectFit
-        
     }
     
     private func configureNameLabel() {

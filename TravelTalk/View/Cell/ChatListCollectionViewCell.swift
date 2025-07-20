@@ -13,31 +13,42 @@ class ChatListCollectionViewCell: UICollectionViewCell {
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
-    lazy var stringToDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd hh:mm"
-        
-        return formatter
-    }()
-    
-    lazy var dateToStringFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yy.MM.dd"
-        return formatter
-    }()
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
     }
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+//    }
     // MARK: - UI
     private func configureUI() {
         configureProfileImageView()
+        configureNameLabel()
+        configureMessageLabel()
+        configureDateLabel()
     }
     
     private func configureProfileImageView() {
         profileImageView.contentMode = .scaleAspectFit
+//        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+    }
+    
+    private func configureNameLabel() {
+        nameLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        messageLabel.textColor = .darkGray
+    }
+    
+    private func configureMessageLabel() {
+        messageLabel.font = .systemFont(ofSize: 15, weight: .medium)
+        messageLabel.textColor = .darkGray
+    }
+    
+    private func configureDateLabel() {
+        dateLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        dateLabel.textColor = .systemGray
+        dateLabel.textAlignment = .right
     }
     
     // MARK: - Data
