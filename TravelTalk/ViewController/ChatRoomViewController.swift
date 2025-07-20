@@ -22,7 +22,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         configureTableView()
     }
     
-    // MARK: - TableView Initialization
+    // MARK: - Initialization
     private func registerNib() {
         print(self, #function)
         let receivedMessageNib = UINib(nibName: "ReceivedMessageViewCell", bundle: nil)

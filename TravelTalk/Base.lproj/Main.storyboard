@@ -42,9 +42,11 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="cVR-JJ-MFM" firstAttribute="leading" secondItem="EHl-7O-6gw" secondAttribute="leading" id="QdH-ZH-uhK"/>
                                     <constraint firstAttribute="bottom" secondItem="Qkd-Lh-gW4" secondAttribute="bottom" id="RaU-c8-D3l"/>
                                     <constraint firstAttribute="trailing" secondItem="Qkd-Lh-gW4" secondAttribute="trailing" id="ctx-In-h2T"/>
-                                    <constraint firstItem="Qkd-Lh-gW4" firstAttribute="top" secondItem="cVR-JJ-MFM" secondAttribute="bottom" id="h6e-oJ-EAP"/>
+                                    <constraint firstItem="cVR-JJ-MFM" firstAttribute="top" secondItem="EHl-7O-6gw" secondAttribute="top" id="kmb-YD-Bcr"/>
+                                    <constraint firstAttribute="trailing" secondItem="cVR-JJ-MFM" secondAttribute="trailing" id="p7t-ch-p3M"/>
                                     <constraint firstItem="Qkd-Lh-gW4" firstAttribute="leading" secondItem="EHl-7O-6gw" secondAttribute="leading" id="pp5-hj-RIg"/>
                                 </constraints>
                             </stackView>
@@ -61,6 +63,7 @@
                     <navigationItem key="navigationItem" title="TRAVEL TALK" id="DxI-tO-Ycl"/>
                     <connections>
                         <outlet property="chatListCollectionView" destination="Qkd-Lh-gW4" id="4OB-bJ-vZw"/>
+                        <outlet property="searchBar" destination="cVR-JJ-MFM" id="Hh7-dB-flJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

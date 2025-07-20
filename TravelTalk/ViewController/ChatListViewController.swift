@@ -7,9 +7,14 @@
 
 import UIKit
 
-class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+// TODO: - CollectionView와 TableView의 차이는 무엇일까? 정리하기
+class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
+    
     @IBOutlet var chatListCollectionView: UICollectionView!
-        
+    @IBOutlet var searchBar: UISearchBar!
+    
+    var filteredList = ChatList.list
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -18,7 +23,8 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
     private func configure() {
         registerNib()
         configureCollectionView()
-        configureLayout()
+        configureCollectionViewLayout()
+        configureSearchBar()
     }
     
     // MARK: - CollectionView Initialization
@@ -35,7 +41,7 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     // MARK: - CollectionView Layout
-    private func configureLayout() {
+    private func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         let deviceWidth = UIScreen.main.bounds.width
         
@@ -49,14 +55,14 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(#function)
 
-        return ChatList.list.count
+        return filteredList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print(#function)
         let cell = chatListCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatListCollectionViewCell", for: indexPath) as! ChatListCollectionViewCell
         
-        cell.configureData(with: ChatList.list[indexPath.item])
+        cell.configureData(with: filteredList[indexPath.item])
         
         return cell
     }
@@ -65,10 +71,43 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         
-        let chatRoom = ChatList.list[indexPath.item]
+        let chatRoom = filteredList[indexPath.item]
         vc.title = chatRoom.chatroomName
         vc.chatRoom = chatRoom
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // TODO: - SearchBar 동작에 대해 공부하기
+    // MARK: - SearchBar
+    func configureSearchBar() {
+        searchBar.delegate = self
+        searchBar.backgroundImage = UIImage()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(#function)
+        search(searchText: searchText)
+    }
+    
+    // TODO: - 끊임없는 실시간 에러 메시지가..
+    // TODO: - 미리 캐싱을 하는 방식으로 반복을 줄일 수 있을지도..
+    func search(searchText: String) {
+        if searchText.isEmpty {
+            filteredList = ChatList.list
+        } else {
+            let lowerCased = searchText.lowercased()
+            
+            filteredList = ChatList.list.filter { chatRoom in
+                chatRoom.chatList.contains { chat in
+                    chat.user.name.lowercased().contains(lowerCased)
+                }
+            }
+        }
+        chatListCollectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
