@@ -9,7 +9,17 @@ import UIKit
 
 class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var chatRoomTableView: UITableView!
+    @IBOutlet var messageTextField: UITextField!
+    
     var chatRoom = ChatRoom(chatroomId: -1, chatroomImage: "", chatroomName: "")
+    
+    // TODO: - 패딩..어케줌..
+    let sendButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        button.tintColor = .placeholderText
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +34,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     private func configure() {
         registerNib()
         configureTableView()
+        configureMessageTextField()
     }
     
     // MARK: - Initialization
@@ -44,10 +55,23 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         chatRoomTableView.separatorColor = .clear
     }
     
+    // MARK: - View UI
+    // TODO: - textField같은것도 nib파일 분리가 되나?
+    private func configureMessageTextField() {
+        messageTextField.backgroundColor = .systemGray6
+        messageTextField.placeholder = "메시지를 입력하세요"
+        messageTextField.rightView = sendButton
+        messageTextField.rightViewMode = .always
+    }
+    
     // MARK: - View Action
     private func scrollToEnd() {
         let index = IndexPath(row: chatRoom.chatList.count-1, section: 0)
         chatRoomTableView.scrollToRow(at: index, at: .bottom, animated: true)
+    }
+    
+    @IBAction func messageTextFieldTapped(_ sender: UITextField) {
+        view.endEditing(true)
     }
     
     // MARK: - TableView Setting

@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tj8-sM-m3p">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="701"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHT-Cq-JpL">
@@ -90,6 +90,17 @@
                                     <constraint firstAttribute="height" constant="0.29999999999999999" id="bjm-oK-nhV"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYL-ZA-VOk">
+                                <rect key="frame" x="32" y="760" width="329" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="6G3-Iq-7Xb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="messageTextFieldTapped:" destination="RHx-1v-BAZ" eventType="editingDidEndOnExit" id="UuW-M1-K10"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="76s-14-Cac"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,15 +108,19 @@
                             <constraint firstItem="tj8-sM-m3p" firstAttribute="leading" secondItem="76s-14-Cac" secondAttribute="leading" id="08E-Ka-zti"/>
                             <constraint firstItem="76s-14-Cac" firstAttribute="trailing" secondItem="tj8-sM-m3p" secondAttribute="trailing" id="3vG-5H-ht7"/>
                             <constraint firstItem="zHT-Cq-JpL" firstAttribute="top" secondItem="76s-14-Cac" secondAttribute="top" id="6qN-oX-Vpi"/>
+                            <constraint firstItem="tYL-ZA-VOk" firstAttribute="leading" secondItem="Dfb-Pr-HcV" secondAttribute="leading" constant="32" id="7Bc-ux-TQj"/>
+                            <constraint firstItem="tYL-ZA-VOk" firstAttribute="top" secondItem="tj8-sM-m3p" secondAttribute="bottom" id="Cfa-4W-WVl"/>
                             <constraint firstAttribute="trailing" secondItem="zHT-Cq-JpL" secondAttribute="trailing" id="Iio-hG-GFp"/>
+                            <constraint firstAttribute="bottom" secondItem="tYL-ZA-VOk" secondAttribute="bottom" constant="44" id="TXO-K0-ojZ"/>
                             <constraint firstItem="zHT-Cq-JpL" firstAttribute="leading" secondItem="Dfb-Pr-HcV" secondAttribute="leading" id="Xr7-Dr-vtT"/>
-                            <constraint firstItem="76s-14-Cac" firstAttribute="bottom" secondItem="tj8-sM-m3p" secondAttribute="bottom" id="mkp-6h-0CV"/>
+                            <constraint firstAttribute="trailing" secondItem="tYL-ZA-VOk" secondAttribute="trailing" constant="32" id="gm9-tD-7Re"/>
                             <constraint firstItem="tj8-sM-m3p" firstAttribute="top" secondItem="76s-14-Cac" secondAttribute="top" id="qsI-Nj-DQf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cjj-KA-wWS"/>
                     <connections>
                         <outlet property="chatRoomTableView" destination="tj8-sM-m3p" id="D68-pi-lQ0"/>
+                        <outlet property="messageTextField" destination="tYL-ZA-VOk" id="pQa-A9-Iz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTP-av-vM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
