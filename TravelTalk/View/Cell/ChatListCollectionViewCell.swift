@@ -49,11 +49,6 @@ class ChatListCollectionViewCell: UICollectionViewCell {
         let lastChatList = chatRoom.chatList.last!
         
         contentLabel.text = lastChatList.message
-        dateLabel.text = formattedDateString(from: lastChatList.date)
-    }
-    
-    private func formattedDateString(from date: String) -> String {
-        let dateString = stringToDateFormatter.date(from: date) ?? Date()
-        return dateToStringFormatter.string(from: dateString)
+        dateLabel.text = ChatDateFormatter.shared.format(from: lastChatList.date, with: .date)
     }
 }

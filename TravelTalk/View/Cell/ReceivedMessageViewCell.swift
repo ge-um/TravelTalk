@@ -26,6 +26,6 @@ class ReceivedMessageViewCell: UITableViewCell {
         print(#function)
         nameLabel.text = chat.user.name
         messageLabel.text = chat.message
-        dateLabel.text = chat.date
+        dateLabel.text = ChatDateFormatter.shared.format(from: chat.date, with: .time)
     }
 }
