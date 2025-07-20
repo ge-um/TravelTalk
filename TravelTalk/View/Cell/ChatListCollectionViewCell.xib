@@ -65,8 +65,8 @@
             </constraints>
             <size key="customSize" width="461" height="98"/>
             <connections>
-                <outlet property="contentLabel" destination="Jtq-aT-7dT" id="8iG-Am-ty7"/>
                 <outlet property="dateLabel" destination="Nv7-jO-5aC" id="Kev-c4-mnf"/>
+                <outlet property="messageLabel" destination="Jtq-aT-7dT" id="8iG-Am-ty7"/>
                 <outlet property="nameLabel" destination="atB-IB-cVa" id="KAO-vJ-oFv"/>
                 <outlet property="profileImageView" destination="rNT-p6-Q9C" id="2TZ-2n-0JD"/>
             </connections>

@@ -10,8 +10,7 @@ import UIKit
 class ChatListCollectionViewCell: UICollectionViewCell {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-    // TODO: - messageLabel로 만들어서 통일성 키우기
-    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var messageLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
     lazy var stringToDateFormatter: DateFormatter = {
@@ -48,7 +47,7 @@ class ChatListCollectionViewCell: UICollectionViewCell {
         
         let lastChatList = chatRoom.chatList.last!
         
-        contentLabel.text = lastChatList.message
+        messageLabel.text = lastChatList.message
         dateLabel.text = ChatDateFormatter.shared.format(from: lastChatList.date, with: .date)
     }
 }
