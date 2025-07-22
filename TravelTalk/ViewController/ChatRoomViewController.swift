@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatRoomViewController: UIViewController {
     @IBOutlet var chatRoomTableView: UITableView!
     @IBOutlet var messageTextField: UITextField!
     
@@ -47,14 +47,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         chatRoomTableView.register(sentMessageNib, forCellReuseIdentifier: "SentMessageTableViewCell")
     }
     
-    private func configureTableView() {
-        print(self, #function)
-        chatRoomTableView.delegate = self
-        chatRoomTableView.dataSource = self
-        chatRoomTableView.rowHeight = UITableView.automaticDimension
-        chatRoomTableView.separatorColor = .clear
-    }
-    
     // MARK: - View UI
     // TODO: - textField같은것도 nib파일 분리가 되나?
     private func configureMessageTextField() {
@@ -73,8 +65,17 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func messageTextFieldTapped(_ sender: UITextField) {
         view.endEditing(true)
     }
+}
+
+extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
+    private func configureTableView() {
+        print(self, #function)
+        chatRoomTableView.delegate = self
+        chatRoomTableView.dataSource = self
+        chatRoomTableView.rowHeight = UITableView.automaticDimension
+        chatRoomTableView.separatorColor = .clear
+    }
     
-    // MARK: - TableView Setting
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatRoom.chatList.count
     }
@@ -97,4 +98,5 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         }
     }
+    
 }
