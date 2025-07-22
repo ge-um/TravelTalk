@@ -8,7 +8,7 @@
 import UIKit
 
 // TODO: - CollectionView와 TableView의 차이는 무엇일까? 정리하기
-class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChatListViewController: UIViewController {
     @IBOutlet var chatListCollectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     
@@ -35,11 +35,6 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         chatListCollectionView.register(nib, forCellWithReuseIdentifier: "ChatListCollectionViewCell")
     }
     
-    private func configureCollectionView() {
-        chatListCollectionView.dataSource = self
-        chatListCollectionView.delegate = self
-    }
-    
     // MARK: - CollectionView Layout
     private func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
@@ -60,8 +55,14 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         navigationItem.backBarButtonItem = backBarButtonItem
         navigationItem.title = "TRAVEL TALK"
     }
+}
+
+extension ChatListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    private func configureCollectionView() {
+        chatListCollectionView.dataSource = self
+        chatListCollectionView.delegate = self
+    }
     
-    // MARK: - CollectionView Setting
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(#function)
 
