@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatListCollectionViewCell: UICollectionViewCell {
+class ChatListCollectionViewCell: UICollectionViewCell, CellProtocol {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var messageLabel: UILabel!
@@ -19,7 +19,7 @@ class ChatListCollectionViewCell: UICollectionViewCell {
     }
 
     // MARK: - UI
-    private func configureUI() {
+    internal func configureUI() {
         configureProfileImageView()
         configureNameLabel()
         configureMessageLabel()
@@ -48,7 +48,9 @@ class ChatListCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Data
-    func configureData(with chatRoom: ChatRoom) {
+    internal func configureData(with data: Any) {
+        let chatRoom = data as! ChatRoom
+        
         profileImageView.image = UIImage(named: chatRoom.chatroomImage)
         nameLabel.text = chatRoom.chatroomName
         

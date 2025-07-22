@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReceivedMessageViewCell: UITableViewCell {
+class ReceivedMessageViewCell: UITableViewCell, CellProtocol {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var messageLabel: UILabel!
@@ -19,15 +19,8 @@ class ReceivedMessageViewCell: UITableViewCell {
         configureUI()
     }
     
-    func configureData(with chat: Chat) {
-        print(#function)
-        profileImageView.image = UIImage(named: chat.user.image)
-        nameLabel.text = chat.user.name
-        messageLabel.text = chat.message
-        dateLabel.text = ChatDateFormatter.shared.format(from: chat.date, with: .time)
-    }
-    
-    private func configureUI() {
+    // MARK: - UI
+    internal func configureUI() {
         configureProfileImageView()
         configureNameLabel()
         configureMessageLabel()
@@ -57,5 +50,16 @@ class ReceivedMessageViewCell: UITableViewCell {
     
     private func configureDateLabel() {
         dateLabel.font = .systemFont(ofSize: 11, weight: .light)
+    }
+    
+    // MARK: - Data
+    internal func configureData(with data: Any) {
+        let chat = data as! Chat
+        
+        print(#function)
+        profileImageView.image = UIImage(named: chat.user.image)
+        nameLabel.text = chat.user.name
+        messageLabel.text = chat.message
+        dateLabel.text = ChatDateFormatter.shared.format(from: chat.date, with: .time)
     }
 }

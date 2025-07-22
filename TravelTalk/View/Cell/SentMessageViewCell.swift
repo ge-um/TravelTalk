@@ -8,17 +8,18 @@
 import UIKit
 
 // TODO: - 비슷한 셀인 경우에 함수를 재활용할수도 있을지.. ??
-class SentMessageViewCell: UITableViewCell {
+class SentMessageViewCell: UITableViewCell, CellProtocol {
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var messageBackgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configure()
+        configureUI()
     }
     
-    private func configure() {
+    // MARK: - UI
+    internal func configureUI() {
         configureMessageLabel()
         configureDateLabel()
     }
@@ -41,7 +42,9 @@ class SentMessageViewCell: UITableViewCell {
         dateLabel.font = .systemFont(ofSize: 11, weight: .light)
     }
     
-    func configureData(with chat: Chat) {
+    // MARK: - Data
+    internal func configureData(with data: Any) {
+        let chat = data as! Chat
         messageLabel.text = chat.message
         dateLabel.text = ChatDateFormatter.shared.format(from: chat.date, with: .time)
     }
