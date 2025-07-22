@@ -8,7 +8,7 @@
 import UIKit
 
 // TODO: - CollectionView와 TableView의 차이는 무엇일까? 정리하기
-class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
+class ChatListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet var chatListCollectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     
@@ -91,9 +91,10 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+}
+
+extension ChatListViewController: UISearchBarDelegate {
     // TODO: - SearchBar 동작에 대해 공부하기
-    // MARK: - SearchBar
     func configureSearchBar() {
         searchBar.delegate = self
         searchBar.backgroundImage = UIImage()
@@ -105,7 +106,6 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         search(searchText: searchText)
     }
     
-    // TODO: - 끊임없는 실시간 에러 메시지가..
     // TODO: - 미리 캐싱을 하는 방식으로 반복을 줄일 수 있을지도..
     func search(searchText: String) {
         if searchText.isEmpty {
