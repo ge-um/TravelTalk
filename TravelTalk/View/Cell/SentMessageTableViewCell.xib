@@ -10,45 +10,56 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentMessageTableViewCell" rowHeight="183" id="KGk-i7-Jjw" customClass="SentMessageTableViewCell" customModule="TravelTalk" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="398" height="183"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentMessageTableViewCell" rowHeight="278" id="KGk-i7-Jjw" customClass="SentMessageTableViewCell" customModule="TravelTalk" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="629" height="278"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="398" height="183"/>
+                <rect key="frame" x="0.0" y="0.0" width="629" height="278"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="88: 88 오후" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOr-KQ-I2S" userLabel="date">
-                        <rect key="frame" x="153.33333333333334" y="146.66666666666666" width="84.666666666666657" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zN4-Ee-x5C">
-                        <rect key="frame" x="246" y="16" width="144" height="151"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EeS-KC-FXw">
+                        <rect key="frame" x="16" y="8" width="597" height="262"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="messagemessag" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jN-vr-nhW" userLabel="message">
-                                <rect key="frame" x="8" y="8" width="128" height="135"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tqg-7n-IyK">
+                                <rect key="frame" x="360.33333333333331" y="0.0" width="236.66666666666669" height="262"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="88: 88 오후" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOr-KQ-I2S" userLabel="date">
+                                        <rect key="frame" x="0.0" y="241.66666666666666" width="84.666666666666671" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zN4-Ee-x5C">
+                                        <rect key="frame" x="92.666666666666686" y="0.0" width="144" height="262"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="messagemessag" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jN-vr-nhW" userLabel="message">
+                                                <rect key="frame" x="8" y="8" width="128" height="246"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4jN-vr-nhW" secondAttribute="trailing" constant="8" id="IpB-pb-D4m"/>
+                                            <constraint firstItem="4jN-vr-nhW" firstAttribute="top" secondItem="zN4-Ee-x5C" secondAttribute="top" constant="8" id="bg2-Pu-zTt"/>
+                                            <constraint firstAttribute="bottom" secondItem="4jN-vr-nhW" secondAttribute="bottom" constant="8" id="hWd-rI-J0S"/>
+                                            <constraint firstItem="4jN-vr-nhW" firstAttribute="leading" secondItem="zN4-Ee-x5C" secondAttribute="leading" constant="8" id="lL5-tP-APJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zN4-Ee-x5C" firstAttribute="top" secondItem="Tqg-7n-IyK" secondAttribute="top" id="JKT-t9-i19"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="4jN-vr-nhW" secondAttribute="trailing" constant="8" id="IpB-pb-D4m"/>
-                            <constraint firstItem="4jN-vr-nhW" firstAttribute="top" secondItem="zN4-Ee-x5C" secondAttribute="top" constant="8" id="bg2-Pu-zTt"/>
-                            <constraint firstAttribute="bottom" secondItem="4jN-vr-nhW" secondAttribute="bottom" constant="8" id="hWd-rI-J0S"/>
-                            <constraint firstItem="4jN-vr-nhW" firstAttribute="leading" secondItem="zN4-Ee-x5C" secondAttribute="leading" constant="8" id="lL5-tP-APJ"/>
-                        </constraints>
-                    </view>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="zN4-Ee-x5C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="SeB-Yd-nQY"/>
-                    <constraint firstItem="QOr-KQ-I2S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YpC-iA-6l2"/>
-                    <constraint firstItem="QOr-KQ-I2S" firstAttribute="bottom" secondItem="zN4-Ee-x5C" secondAttribute="bottom" id="hLy-C2-toX"/>
-                    <constraint firstAttribute="trailing" secondItem="zN4-Ee-x5C" secondAttribute="trailing" constant="8" id="nKx-Oa-BOl"/>
-                    <constraint firstItem="zN4-Ee-x5C" firstAttribute="leading" secondItem="QOr-KQ-I2S" secondAttribute="trailing" constant="8" id="qqe-Ju-tGF"/>
-                    <constraint firstAttribute="bottom" secondItem="zN4-Ee-x5C" secondAttribute="bottom" constant="16" id="syL-9s-S4x"/>
+                    <constraint firstItem="EeS-KC-FXw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="2F9-wx-Z00"/>
+                    <constraint firstItem="EeS-KC-FXw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Czd-VM-PFU"/>
+                    <constraint firstAttribute="trailing" secondItem="EeS-KC-FXw" secondAttribute="trailing" constant="16" id="rY5-EA-oCQ"/>
+                    <constraint firstAttribute="bottom" secondItem="EeS-KC-FXw" secondAttribute="bottom" constant="8" id="xrO-tw-UJd"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -57,7 +68,7 @@
                 <outlet property="messageBackgroundView" destination="zN4-Ee-x5C" id="tQn-R3-awf"/>
                 <outlet property="messageLabel" destination="4jN-vr-nhW" id="I6c-iz-Qg9"/>
             </connections>
-            <point key="canvasLocation" x="-4.5801526717557248" y="75.704225352112687"/>
+            <point key="canvasLocation" x="298.47328244274809" y="194.36619718309859"/>
         </tableViewCell>
     </objects>
     <resources>

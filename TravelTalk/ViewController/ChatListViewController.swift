@@ -74,7 +74,6 @@ class ChatListViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         cell.configureData(with: filteredList[indexPath.item])
         
-        // TODO: - Drawing Cycle 공부하고 layoutSubView로 바꿔보기
         DispatchQueue.main.async {
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.width / 2
         }
