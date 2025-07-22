@@ -22,6 +22,7 @@ class ChatRoomViewController: UIViewController {
         return button
     }()
     
+    // TODO: - dateLabel 위로
     let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .darkGray
@@ -123,7 +124,6 @@ extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
         guard let dateString = chatRoom.groupedChatList[section].first?.date, section != 0 else {
             return dateLabel
         }
-        
         
         dateLabel.text = ChatDateFormatter.shared.format(from: dateString, with: .date)
         return dateLabel

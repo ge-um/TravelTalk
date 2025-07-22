@@ -28,7 +28,7 @@ final class ChatDateFormatter {
     private lazy var chatTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "HH:mm a"
+        formatter.dateFormat = "hh:MM a"
         return formatter
     }()
 
