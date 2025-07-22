@@ -13,13 +13,25 @@ class ChatRoomViewController: UIViewController {
     
     var chatRoom = ChatRoom(chatroomId: -1, chatroomImage: "", chatroomName: "")
     
-    // TODO: - 패딩..어케줌..
+    // MARK: - Component
     let sendButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "paperplane"), for: .normal)
         button.tintColor = .placeholderText
+        
         return button
     }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .darkGray
+        label.font = .systemFont(ofSize: 12, weight: .light)
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    // MARK: - View Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +40,7 @@ class ChatRoomViewController: UIViewController {
     
     // TODO: - scrollToRow geometry 필요할까?
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         scrollToEnd()
     }
     
@@ -58,8 +71,11 @@ class ChatRoomViewController: UIViewController {
     
     // MARK: - View Action
     private func scrollToEnd() {
-        let index = IndexPath(row: chatRoom.chatList.count-1, section: 0)
-        chatRoomTableView.scrollToRow(at: index, at: .bottom, animated: true)
+        guard let lastSection = chatRoom.groupedChatList.indices.last else { return }
+        let lastRow = chatRoom.groupedChatList[lastSection].count - 1
+        
+        let index = IndexPath(row: lastRow, section: lastSection)
+        chatRoomTableView.scrollToRow(at: index, at: .bottom, animated: false)
     }
     
     @IBAction func messageTextFieldTapped(_ sender: UITextField) {
@@ -76,27 +92,40 @@ extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
         chatRoomTableView.separatorColor = .clear
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return chatRoom.groupedChatList.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatRoom.chatList.count
+        return chatRoom.groupedChatList[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(#function)
         
-        let chatList = chatRoom.chatList[indexPath.row]
+        let chat = chatRoom.groupedChatList[indexPath.section][indexPath.row]
         
-        switch chatList.user.name {
+        switch chat.user.name {
             
         case ChatList.me.name:
             let cell = chatRoomTableView.dequeueReusableCell(withIdentifier: "SentMessageTableViewCell") as! SentMessageTableViewCell
-            cell.configureData(with: chatList)
+            cell.configureData(with: chat)
             return cell
 
         default:
             let cell = chatRoomTableView.dequeueReusableCell(withIdentifier: "ReceivedMessageTableViewCell") as! ReceivedMessageTableViewCell
-            cell.configureData(with: chatList)
+            cell.configureData(with: chat)
             return cell
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let dateString = chatRoom.groupedChatList[section].first?.date, section != 0 else {
+            return dateLabel
+        }
+        
+        
+        dateLabel.text = ChatDateFormatter.shared.format(from: dateString, with: .date)
+        return dateLabel
+    }
 }

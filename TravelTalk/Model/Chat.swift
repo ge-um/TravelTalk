@@ -12,4 +12,8 @@ struct Chat {
     let user: User
     let date: String
     let message: String
+    
+    var dateOnly: String {
+        return date.components(separatedBy: " ")[0]
+    }
 }

@@ -18,3 +18,13 @@ struct ChatRoom {
     /// 채팅 화면에서 사용할 데이터
     var chatList: [Chat] = []
 }
+
+extension ChatRoom {
+    var groupedChatList: [[Chat]] {
+        let groupedDic = Dictionary(grouping: chatList) { $0.dateOnly }
+        let sortedKeys = groupedDic.keys.sorted()
+        let groupedArray = sortedKeys.compactMap { groupedDic[$0] }
+        
+        return groupedArray
+    }
+}

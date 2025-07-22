@@ -16,7 +16,7 @@ struct ChatList {
     static let finn = User(name: "Finn", image: "Finn")
     static let other_friend = User(name: "Other Friend", image: "Other")
     static let simsim = User(name: "심심이", image: "Simsim")
-    
+
     static let list: [ChatRoom] = [
         ChatRoom(chatroomId: 1,
                  chatroomImage: "Sanlio",
