@@ -1,18 +1,17 @@
 //
-//  ReceivedMessageViewCell.swift
+//  SentMessageViewCell.swift
 //  TravelTalk
 //
-//  Created by 금가경 on 7/19/25.
+//  Created by 금가경 on 7/20/25.
 //
 
 import UIKit
 
-class ReceivedMessageViewCell: UITableViewCell, CellProtocol {
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
+// TODO: - 비슷한 셀인 경우에 함수를 재활용할수도 있을지.. ??
+class SentMessageTableViewCell: UITableViewCell, CellProtocol {
     @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var messageBackgroundView: UIView!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var messageBackgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,31 +20,22 @@ class ReceivedMessageViewCell: UITableViewCell, CellProtocol {
     
     // MARK: - UI
     internal func configureUI() {
-        configureProfileImageView()
-        configureNameLabel()
         configureMessageLabel()
         configureDateLabel()
-    }
-    
-    private func configureProfileImageView() {
-        profileImageView.contentMode = .scaleAspectFit
-    }
-    
-    private func configureNameLabel() {
-        nameLabel.font = .systemFont(ofSize: 14, weight: .medium)
-        messageLabel.numberOfLines = 0
     }
     
     private func configureMessageLabel() {
         messageLabel.font = .systemFont(ofSize: 14, weight: .regular)
         messageLabel.numberOfLines = 0
-        configureMessageBackgroundView()
+        messageLabel.textAlignment = .right
+        configureBackgroundView()
     }
     
-    private func configureMessageBackgroundView() {
+    private func configureBackgroundView() {
         messageBackgroundView.layer.cornerRadius = 10
         messageBackgroundView.layer.borderColor = UIColor.systemGray.cgColor
         messageBackgroundView.layer.borderWidth = 1
+        messageBackgroundView.backgroundColor = .systemGray5
     }
     
     private func configureDateLabel() {
@@ -55,10 +45,6 @@ class ReceivedMessageViewCell: UITableViewCell, CellProtocol {
     // MARK: - Data
     internal func configureData(with data: Any) {
         let chat = data as! Chat
-        
-        print(#function)
-        profileImageView.image = UIImage(named: chat.user.image)
-        nameLabel.text = chat.user.name
         messageLabel.text = chat.message
         dateLabel.text = ChatDateFormatter.shared.format(from: chat.date, with: .time)
     }
